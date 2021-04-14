@@ -30,23 +30,22 @@ function generateRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-const parent = document.querySelector('.text-center')
-
 let printImage = () => {
     return addImage(`https://randomfox.ca/images/${generateRandomNumber(1, 122)}.jpg`, 320)
 }
 
-function printRandomImages (qty) {
+function printRandomImages (qty, container) {
     const imagesArray = []
     for (let index = 0; index < qty; index++) {
         imagesArray.push(printImage())
     }
-    console.log(printImage());
-    parent.append(...imagesArray)
-
+    //console.log(printImage());
+    container.append(...imagesArray)
+    
 }
 
-printRandomImages(5)     
+const parent = document.querySelector('.text-center')
+printRandomImages(5, parent)     
 
 
 
