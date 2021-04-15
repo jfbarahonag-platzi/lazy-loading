@@ -12,18 +12,14 @@ function createElement(type, className='') {
 }
 
 function addImage(src, width) {
-    let images = createElement('div')
-    images.id = 'images'
-    //
-    let div = createElement('div', 'p-4')
+    let container = createElement('div', 'p-4')
     //
     const element = createElement('img', 'mx-auto rounded-lg')
     element.width = width
     element.src = src
-    div.append(element)
-    images.append(div)
+    container.append(element)
     //console.log(images);
-    return images
+    return container
 }
 
 function generateRandomNumber(min, max) {
@@ -44,7 +40,7 @@ function printRandomImages (qty, container) {
     
 }
 
-const parent = document.querySelector('.text-center')
+const parent = document.querySelector('#images')
 printRandomImages(5, parent)     
 
 
