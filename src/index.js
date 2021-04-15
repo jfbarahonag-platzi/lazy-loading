@@ -1,7 +1,5 @@
-/**
- * This file is just a silly example to show everything working in the browser.
- * When you're ready to start on your site, clear the file. Happy hacking!
- **/
+const addButton = document.querySelector('button')
+const parent = document.querySelector('#images')
 
 function createElement(type, className='') {
     const node = document.createElement(type)
@@ -11,7 +9,7 @@ function createElement(type, className='') {
     return node
 }
 
-function addImage(src, width) {
+function generateRandomImage(src, width) {
     let container = createElement('div', 'p-4')
     //
     const element = createElement('img', 'mx-auto rounded-lg')
@@ -27,7 +25,7 @@ function generateRandomNumber(min, max) {
 }
 
 let printImage = () => {
-    return addImage(`https://randomfox.ca/images/${generateRandomNumber(1, 122)}.jpg`, 320)
+    return generateRandomImage(`https://randomfox.ca/images/${generateRandomNumber(1, 122)}.jpg`, 320)
 }
 
 function printRandomImages (qty, container) {
@@ -36,12 +34,14 @@ function printRandomImages (qty, container) {
         imagesArray.push(printImage())
     }
     //console.log(printImage());
-    container.append(...imagesArray)
-    
+    container.append(...imagesArray)   
 }
 
-const parent = document.querySelector('#images')
-printRandomImages(5, parent)     
+const addImage = () => {
+    printRandomImages(1, parent)
+}
+
+addButton.addEventListener('click', addImage)     
 
 
 
