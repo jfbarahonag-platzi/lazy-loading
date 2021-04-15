@@ -12,7 +12,7 @@ function createElement(type, className='') {
 }
 
 function generateRandomImage(src, width) {
-    let container = createElement('div', 'p-4')
+    let container = createElement('div', 'p-2 bg-yellow-700 bg-opacity-50 m-1 rounded-lg')
     //
     const element = createElement('img', 'mx-auto rounded-lg')
     element.width = width
