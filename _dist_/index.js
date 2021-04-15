@@ -1,3 +1,5 @@
+import { registerImage } from "./lazy.js";
+
 const addButton = document.querySelector('button')
 const parent = document.querySelector('#images')
 
@@ -31,7 +33,9 @@ let printImage = () => {
 function printRandomImages (qty, container) {
     const imagesArray = []
     for (let index = 0; index < qty; index++) {
-        imagesArray.push(printImage())
+        let image = printImage()
+        imagesArray.push(image)
+        registerImage(image)
     }
     //console.log(printImage());
     container.append(...imagesArray)   
