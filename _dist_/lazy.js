@@ -8,10 +8,13 @@ Lazy loading library
 
  const action = (entry) => {
     console.log("Hey dude")
-    const node = entry.target
-
+    const container = entry.target
+    //const image = container.querySelector('img')
+    const image = container.firstChild
+    const url = image.dataset.src
+    image.src = url
     //unlisten the image -> To avoid unwanted actions
-    observer.unobserve(node)
+    observer.unobserve(container)
  };
 
 const observer = new IntersectionObserver((entries) => {

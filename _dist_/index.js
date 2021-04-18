@@ -16,7 +16,8 @@ function generateRandomImage(src, width) {
     //
     const element = createElement('img', 'mx-auto rounded-lg')
     element.width = width
-    element.src = src
+    /** the image will be loaded in the lazy loading callback. NOT HERE */
+    element.dataset.src = src
     container.append(element)
     //console.log(images);
     return container
