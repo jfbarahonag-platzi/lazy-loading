@@ -4,6 +4,14 @@
 import { registerImage } from "./lazy.js";
 
 /**
+ * Variables
+ */
+ export let images = {
+    loaded : 0,
+    total : 0
+}
+
+/**
  * Elements
  */
 const addButton = document.querySelector('button')
@@ -34,6 +42,16 @@ const checkIfChildExists = (parent) => {
 
 const removeFirstChild = (parent) => {
     parent.removeChild(parent.firstChild)
+}
+
+const resetImagesValues = info => {
+    info.total = 0
+    info.loaded = 0
+}
+
+export const printImagesInfo = info => {
+    console.log(`⚪ Total = ${info.total}\n🟣 Loaded = ${info.loaded}`);
+    console.log('--------------------------------------');
 }
 
 /**
@@ -80,6 +98,8 @@ const removeImage = () => {
  */
 const addImage = () => {
     printRandomImages(1, parent)
+    images.total++
+    printImagesInfo(images)
 }
 
 const removeAllImages = () => {
@@ -92,6 +112,8 @@ const removeAllImages = () => {
     while (parent.firstChild != null) {
         removeImage()
     }
+    resetImagesValues(images)
+    printImagesInfo(images)
 }
 
 const removeFirstImage = () => {
@@ -102,6 +124,9 @@ const removeFirstImage = () => {
     }
 
     removeImage()
+    images.total--
+    images.loaded--
+    printImagesInfo(images)
 }
 
 /**
