@@ -2,6 +2,7 @@
  * import libraries
  */
 import { registerImage } from "./lazy.js";
+import h from "../_snowpack/pkg/hyperscript.js";
 
 /**
  * Variables
@@ -24,11 +25,20 @@ const parent = document.querySelector('#images')
  * First level functions
  */
 function createElement(type, className='') {
+    /* // "Pure JS" implementation
     const node = document.createElement(type)
     if (className != '') {
         node.className = className
     }
     return node
+    */
+   // Hyperscript usage
+    if (className == '') {
+        return h(`${type}`)
+    }
+    //className = className.replaceAll(' ', '.')
+    return h(`${type}.${className.replaceAll(' ', '.')}`)
+
 }
 
 function generateRandomNumber(min, max) {
