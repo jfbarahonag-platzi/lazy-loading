@@ -2,6 +2,7 @@
  * import libraries
  */
 import { registerImage } from "./lazy";
+import { h } from "hyperscript";
 
 /**
  * Variables
